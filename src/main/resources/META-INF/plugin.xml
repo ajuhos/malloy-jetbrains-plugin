@@ -7,13 +7,13 @@
     <name>Malloy Support</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor url="https://www.yourcompany.com">YourCompany</vendor>
+    <vendor url="https://www.wearebreak.com">We Are Break Kft.</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
     <description><![CDATA[
-        Enter short description for your plugin here.<br>
-        <em>most HTML tags may be used</em>
+        Unofficial support for the Malloy language.<br>
+        For now only basic syntax highlighting and completion is supported.
     ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -31,13 +31,8 @@
                   extensions="malloy"/>
         <completion.contributor language="Malloy"
                                 implementationClass="com.wearebreak.malloyjetbrainsplugin.MalloyCompletionContributor"/>
-
         <colorSettingsPage implementation="com.wearebreak.malloyjetbrainsplugin.MalloyColorSettingsPage"/>
-
         <lang.syntaxHighlighterFactory language="Malloy"
                                        implementationClass="com.wearebreak.malloyjetbrainsplugin.MalloySyntaxHighlighterFactory"/>
-
-        <toolWindow id="MyToolWindow" factoryClass="com.wearebreak.malloyjetbrainsplugin.MyToolWindowFactory"
-                    icon="AllIcons.Toolwindows.ToolWindowPalette"/>
-    </extensions>
+</extensions>
 </idea-plugin>
