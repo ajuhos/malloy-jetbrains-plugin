@@ -1,0 +1,43 @@
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN, cannot be changed between the plugin versions. -->
+    <id>com.wearebreak.malloy-jetbrains-plugin</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
+    <name>Malloy Support</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor url="https://www.yourcompany.com">YourCompany</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <description><![CDATA[
+        Enter short description for your plugin here.<br>
+        <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.compose</depends>
+    <depends>com.intellij.modules.lsp</depends>
+
+    <depends>com.intellij.database</depends>
+    <resource-bundle>messages.MyMessageBundle</resource-bundle>
+    <!-- Extensions defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Malloy" language="Malloy"
+                  implementationClass="com.wearebreak.malloyjetbrainsplugin.MalloyFileType"
+                  extensions="malloy"/>
+        <completion.contributor language="Malloy"
+                                implementationClass="com.wearebreak.malloyjetbrainsplugin.MalloyCompletionContributor"/>
+
+        <colorSettingsPage implementation="com.wearebreak.malloyjetbrainsplugin.MalloyColorSettingsPage"/>
+
+        <lang.syntaxHighlighterFactory language="Malloy"
+                                       implementationClass="com.wearebreak.malloyjetbrainsplugin.MalloySyntaxHighlighterFactory"/>
+
+        <toolWindow id="MyToolWindow" factoryClass="com.wearebreak.malloyjetbrainsplugin.MyToolWindowFactory"
+                    icon="AllIcons.Toolwindows.ToolWindowPalette"/>
+    </extensions>
+</idea-plugin>
